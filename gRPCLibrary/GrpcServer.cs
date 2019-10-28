@@ -66,12 +66,12 @@ namespace gRPCLibrary
                     })
                     .Build();
 
-            return _host.StartAsync();
+            return _host.StartAsync(cancellationToken);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            return _host?.StartAsync() ?? Task.CompletedTask;
+            return _host?.StopAsync(cancellationToken) ?? Task.CompletedTask;
         }
     }
 }
